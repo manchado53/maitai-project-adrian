@@ -144,3 +144,4 @@ class SuggestResponse(BaseModel):
     analysis: str = Field(..., description="LLM's analysis of failure patterns")
     suggestions: list[str] = Field(..., description="Specific improvement suggestions")
     priority_categories: list[str] = Field(..., description="Categories needing most work")
+    enhanced_prompt: str = Field(..., description="Improved version of the prompt")

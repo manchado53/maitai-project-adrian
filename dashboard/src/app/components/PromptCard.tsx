@@ -35,7 +35,13 @@ export function PromptCard({
   onRunTest
 }: PromptCardProps) {
   const [selectedRunId, setSelectedRunId] = useState(runs[0]?.id);
-  
+  const [showAllFailed, setShowAllFailed] = useState(false);
+
+  const handleRunChange = (runId: string) => {
+    setSelectedRunId(runId);
+    setShowAllFailed(false);
+  };
+
   const selectedRun = runs.find(r => r.id === selectedRunId) || runs[0];
   const overallAccuracy = runs.length > 0 
     ? runs.reduce((sum, r) => sum + r.accuracy, 0) / runs.length 
@@ -63,7 +69,7 @@ export function PromptCard({
         {/* Run Selector */}
         <div>
           <label className="text-sm font-medium mb-2 block">Select Run:</label>
-          <Select value={selectedRunId} onValueChange={setSelectedRunId}>
+          <Select value={selectedRunId} onValueChange={handleRunChange}>
             <SelectTrigger>
               <SelectValue />
             </SelectTrigger>
@@ -86,20 +92,20 @@ export function PromptCard({
         {/* Failed Cases */}
         <div>
           <h4 className="font-semibold mb-3">Failed Cases</h4>
-          <div className="space-y-2">
-            {selectedRun.failedCases.slice(0, 5).map(fail => (
+          <div className="space-y-2 max-h-96 overflow-y-auto">
+            {(showAllFailed ? selectedRun.failedCases : selectedRun.failedCases.slice(0, 5)).map(fail => (
               <div key={fail.id} className="p-3 border rounded-lg text-sm">
                 <span className="font-medium">#{fail.id}:</span> {fail.ticket}
                 <div className="mt-1 text-muted-foreground">
-                  Expected: <span className="text-green-600">{fail.expected}</span> → 
+                  Expected: <span className="text-green-600">{fail.expected}</span> →
                   Got: <span className="text-red-600">{fail.predicted}</span>
                 </div>
               </div>
             ))}
           </div>
           {selectedRun.failedCases.length > 5 && (
-            <Button variant="link" className="mt-2">
-              View All ({selectedRun.failedCases.length} total)
+            <Button variant="link" className="mt-2" onClick={() => setShowAllFailed(!showAllFailed)}>
+              {showAllFailed ? 'Show Less' : `View All (${selectedRun.failedCases.length} total)`}
             </Button>
           )}
         </div>
