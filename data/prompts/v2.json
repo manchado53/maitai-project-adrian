@@ -1,8 +1,8 @@
 {
   "id": "v2",
-  "name": "Simplified (Regression)",
+  "name": "Simple Dummy Prompt",
   "template": "Classify this support ticket into one category:\nACCOUNT, CANCEL, CONTACT, DELIVERY, FEEDBACK, INVOICE, ORDER, PAYMENT, REFUND, SHIPPING, or SUBSCRIPTION.\n\nTicket: {ticket}\nCategory:",
-  "categories": ["ACCOUNT", "CANCEL", "CONTACT", "DELIVERY", "FEEDBACK", "INVOICE", "ORDER", "PAYMENT", "REFUND", "SHIPPING", "SUBSCRIPTION"],
+  "categories": [],
   "created_at": "2024-01-16T09:00:00Z",
-  "updated_at": "2024-01-16T09:00:00Z"
+  "updated_at": "2026-01-02T12:14:59.728472+00:00"
 }

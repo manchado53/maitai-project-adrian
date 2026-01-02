@@ -27,7 +27,8 @@ export function Dashboard({ onNavigate }: DashboardProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [aiAnalysis, setAiAnalysis] = useState<string>('');
-  const [aiSuggestions, setAiSuggestions] = useState<Array<{ priority: string; text: string }>>([]);
+  const [aiSuggestions, setAiSuggestions] = useState<Array<{ priority: 'high' | 'medium' | 'low'; text: string }>>([]);
+  const [enhancedPrompt, setEnhancedPrompt] = useState<string>('');
   const [loadingSuggestions, setLoadingSuggestions] = useState(false);
 
   useEffect(() => {
@@ -87,12 +88,14 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         });
         setAiAnalysis(response.analysis);
         setAiSuggestions(response.suggestions.map((s, i) => ({
-          priority: i === 0 ? 'high' : i < 3 ? 'medium' : 'low',
+          priority: (i === 0 ? 'high' : i < 3 ? 'medium' : 'low') as 'high' | 'medium' | 'low',
           text: s,
         })));
+        setEnhancedPrompt(response.enhanced_prompt);
       } catch (err) {
         setAiAnalysis('Failed to get AI suggestions. Please try again.');
         setAiSuggestions([]);
+        setEnhancedPrompt('');
       } finally {
         setLoadingSuggestions(false);
       }
@@ -214,8 +217,9 @@ export function Dashboard({ onNavigate }: DashboardProps) {
           isOpen={!!selectedPromptForSuggestions}
           onClose={() => setSelectedPromptForSuggestions(null)}
           promptName={selectedPrompt.name}
-          analysis={loadingSuggestions ? 'Loading suggestions...' : aiAnalysis}
-          suggestions={aiSuggestions}
+          analysis={aiAnalysis}
+          suggestions={loadingSuggestions ? [] : aiSuggestions}
+          enhancedPrompt={loadingSuggestions ? undefined : enhancedPrompt}
         />
       )}
     </div>

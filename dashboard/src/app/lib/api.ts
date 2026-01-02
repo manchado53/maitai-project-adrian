@@ -104,6 +104,7 @@ export interface SuggestResponse {
   analysis: string;
   suggestions: string[];
   priority_categories: string[];
+  enhanced_prompt: string;
 }
 
 // ============ API Functions ============

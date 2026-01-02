@@ -1,0 +1,20 @@
+{
+  "id": "prompt-ai",
+  "name": "Prompt with AI",
+  "template": "Classify this customer support ticket into ONE category.\n\nCategories:\n- ACCOUNT: account creation, deletion, editing, password recovery, registration issues, switching accounts\n- CANCEL: cancellation fees, checking cancellation policies, withdrawal fees, withdrawal penalties, terminating service\n- CONTACT: contacting support, requesting human agent\n- DELIVERY: delivery timeframes, delivery status updates, estimated arrival dates, delivery service options, when items will arrive\n- FEEDBACK: complaints, reviews, general comments about service quality\n- INVOICE: checking invoices, requesting invoices, billing documentation\n- ORDER: order cancellation, changes, placement, tracking, modifying items in an order\n- PAYMENT: payment methods, payment issues, declined transactions, payment processing\n- REFUND: refund policies, requesting refunds, tracking refund status, return procedures\n- SHIPPING: shipping address changes, shipping method selection, package pickup locations, carrier options\n- SUBSCRIPTION: subscription management, newsletter subscription/unsubscription, recurring service changes\n\nImportant: Focus on the PRIMARY intent of the ticket, not just keywords mentioned.\n- DELIVERY refers to when and how items will arrive to the customer\n- SHIPPING refers to where items will be sent and which carrier/method will be used\n- When both are mentioned, prioritize the main customer concern\n\nTicket: {ticket}\n\nRespond with ONLY the category name in uppercase.\nCategory:",
+  "categories": [
+    "ACCOUNT",
+    "CANCEL",
+    "CONTACT",
+    "DELIVERY",
+    "FEEDBACK",
+    "INVOICE",
+    "ORDER",
+    "PAYMENT",
+    "REFUND",
+    "SHIPPING",
+    "SUBSCRIPTION"
+  ],
+  "created_at": "2026-01-02T12:39:52.746989+00:00",
+  "updated_at": "2026-01-02T12:39:52.746989+00:00"
+}
