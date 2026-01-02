@@ -126,12 +126,12 @@ Maitai-interview/
 - [x] 16. Create `api/routers/metrics.py`
 - [x] 17. Create `api/routers/test_sets.py`
 
-### Phase 6: LLM Suggestions Endpoint
-- [ ] 18. Create `api/routers/suggest.py`:
+### Phase 6: LLM Suggestions Endpoint ✅
+- [x] 18. Create `api/routers/suggest.py`:
     - POST `/suggest` - Takes full analysis report, returns Claude suggestions
     - Input: prompt template, metrics, category stats, confusion matrix, failed cases
     - Output: actionable improvement suggestions
-- [ ] 19. Add Anthropic SDK direct call (separate from Maitai)
+- [x] 19. Uses Maitai for LLM calls (consistent with rest of project)
 
 ### Phase 7: Testing & Integration
 - [ ] 20. Test all endpoints with curl/Postman
@@ -314,4 +314,4 @@ Run failures are captured in the run file:
 ```
 
 ## Current
-Phase 1-5 complete. Ready for Phase 6 - LLM Suggestions Endpoint
+Phase 1-6 complete. Ready for Phase 7 - Testing & Integration
