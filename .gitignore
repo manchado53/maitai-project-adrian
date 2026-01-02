@@ -8,8 +8,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg-info/
+dist/
+build/
 
-# Results
+# Results (legacy - now in data/runs/)
 results_*.json
 
 # IDE
@@ -21,3 +24,12 @@ results_*.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Next.js (for frontend)
+dashboard/node_modules/
+dashboard/.next/
+dashboard/out/

@@ -1,252 +1,178 @@
-# Plan: Prompt Optimization Dashboard - Frontend Design
+# Plan: Prompt Optimization Dashboard - Frontend
 
 ## App Purpose
 A dashboard for testing and improving LLM prompts. Users create prompts, run tests against a dataset, view accuracy metrics, and get AI-powered suggestions to improve their prompts.
 
-## Tech Stack
-- **Framework**: Next.js 14 (App Router)
-- **Styling**: Tailwind CSS
+## Tech Stack (Figma Export)
+- **Framework**: Vite + React 18
+- **Styling**: Tailwind CSS v4 + shadcn/ui (46 components)
 - **Charts**: Recharts
+- **Icons**: Lucide React + MUI Icons
+- **State**: React useState (client-side routing)
 
-## Color Scheme
-- Primary: Blue for actions
-- Success: Green for high accuracy (>90%)
-- Warning: Yellow for medium accuracy (70-90%)
-- Error: Red for low accuracy (<70%)
+## Project Structure
+```
+dashboard/
+├── src/
+│   ├── app/
+│   │   ├── components/
+│   │   │   ├── ui/           # 46 shadcn/ui components
+│   │   │   ├── AccuracyBadge.tsx
+│   │   │   ├── AISuggestionsModal.tsx
+│   │   │   ├── CategoryChart.tsx
+│   │   │   ├── ConfusionMatrix.tsx
+│   │   │   ├── MetricCard.tsx
+│   │   │   └── PromptCard.tsx
+│   │   ├── pages/
+│   │   │   ├── Dashboard.tsx
+│   │   │   ├── PromptEditor.tsx
+│   │   │   ├── PromptsPage.tsx
+│   │   │   ├── RunDetails.tsx
+│   │   │   ├── RunsPage.tsx
+│   │   │   └── TestSetPage.tsx
+│   │   ├── data/
+│   │   │   └── mockData.ts   # Replace with API calls
+│   │   └── App.tsx           # Main router
+│   ├── styles/
+│   └── main.tsx
+└── package.json
+```
 
----
+## Pages & Navigation
+| Page | Component | Purpose |
+|------|-----------|---------|
+| Dashboard | `Dashboard.tsx` | Overview + prompt comparison |
+| Prompts | `PromptsPage.tsx` | List all prompts |
+| Prompt Editor | `PromptEditor.tsx` | Create/edit prompts |
+| Runs | `RunsPage.tsx` | Test run history |
+| Run Details | `RunDetails.tsx` | Single run analysis |
+| Test Set | `TestSetPage.tsx` | Browse test data |
 
-## Site Map
-
-| Route | Page | Purpose |
-|-------|------|---------|
-| `/` | Dashboard | Overview + prompt comparison |
-| `/prompts` | Prompts List | List all prompts |
-| `/prompts/new` | New Prompt | Create new prompt |
-| `/prompts/[id]` | Edit Prompt | Edit existing prompt |
-| `/runs` | Run History | Table of all test runs |
-| `/runs/[id]` | Run Details | Single run full details |
-| `/test-set` | Test Set | Browse test data |
-
----
-
-## Pages & Components
-
-### 1. DASHBOARD (`/`) - Main Page
-
-**Header:**
-- Logo + "Prompt Optimization Dashboard"
-- Navigation: Dashboard | Prompts | Runs | Test Set
-- [+ New Prompt] button (top right)
-
-**Overview Section:**
-- 3 metric cards side-by-side showing each prompt version (v1, v2, v3)
-  - Prompt name
-  - Accuracy percentage (large text)
-  - Small progress bar
-  - Run count
-- Horizontal bar chart comparing all prompt accuracies
-- Summary stats row: Best prompt, total test cases, total runs
-
-**Prompt Cards Section (one card per prompt):**
-Each card contains:
-- **Header row**: Prompt name + overall accuracy + [Run Test] button
-- **Run selector**: Dropdown (Latest, specific dates, Averaged)
-- **Category breakdown**: Horizontal bar chart showing accuracy per category
-  - 11 categories total
-  - Warning icon next to categories below 80%
-- **Confusion matrix**: Expandable section (collapsed by default)
-  - Table/heatmap showing actual vs predicted categories
-- **Failed cases list**: Shows 3-5 items with [View All] link
-  - Format: "#42: Expected DELIVERY → Got SHIPPING"
-- **Footer buttons**: [View Prompt] [Suggest Improvements]
-
-**AI Suggestions Modal (triggered by "Suggest Improvements"):**
-- Modal/dialog overlay
-- Title: "AI Suggestions for [prompt name]"
-- Analysis section: Paragraph explaining failure patterns
-- Suggestions list: 3-5 numbered actionable items
-- Priority categories: Colored badges (red = critical, yellow = needs work)
-- [Close] button
+## Custom Components (from Figma)
+1. **AccuracyBadge** - Color-coded accuracy (green ≥90%, yellow ≥70%, red <70%)
+2. **AISuggestionsModal** - AI improvement suggestions dialog
+3. **CategoryChart** - Per-category accuracy bar chart
+4. **ConfusionMatrix** - Expandable confusion matrix
+5. **MetricCard** - Accuracy metric display card
+6. **PromptCard** - Full prompt analysis card
 
 ---
 
-### 2. PROMPTS PAGE (`/prompts`)
+## Backend Integration Plan
 
-**Header:**
-- Page title: "Prompts"
-- [+ New Prompt] button
+### API Base URL
+```typescript
+const API_BASE = 'http://localhost:8000';
+```
 
-**Prompts List:**
-Cards or rows for each prompt showing:
-- Prompt name and ID
-- Created date
-- Run count
-- Best accuracy achieved
-- [Edit] button
+### API Client (`src/app/lib/api.ts`)
+Create functions to call each backend endpoint:
 
----
+| Function | Endpoint | Purpose |
+|----------|----------|---------|
+| `getPrompts()` | GET /prompts | List all prompts |
+| `getPrompt(id)` | GET /prompts/{id} | Get single prompt |
+| `createPrompt(data)` | POST /prompts | Create new prompt |
+| `updatePrompt(id, data)` | PUT /prompts/{id} | Update prompt |
+| `deletePrompt(id)` | DELETE /prompts/{id} | Delete prompt |
+| `getRuns(promptId?)` | GET /runs | List runs |
+| `getRun(id)` | GET /runs/{id} | Get run details |
+| `createRun(promptId)` | POST /runs | Start new test run |
+| `getMetricsSummary()` | GET /metrics/summary | Dashboard metrics |
+| `getTestSet()` | GET /test-set | Test set info |
+| `getTestCases(filters)` | GET /test-set/cases | Test cases |
+| `getSuggestions(data)` | POST /suggest | AI suggestions |
 
-### 3. PROMPT EDITOR (`/prompts/[id]` or `/prompts/new`)
+### Data Type Mapping
+Backend → Frontend type alignment:
 
-**Form Layout:**
-- **ID field**: Text input (disabled if editing existing prompt)
-- **Name field**: Text input
-- **Template field**: Large textarea with monospace font
-  - Shows `{ticket}` as placeholder variable
-- **Footer**: [Cancel] [Save] [Run Test] buttons
+```typescript
+// Prompt
+interface Prompt {
+  id: string;
+  name: string;
+  template: string;
+  categories: string[];
+  created_at: string;
+  updated_at: string;
+}
 
----
+// Run
+interface Run {
+  id: string;
+  prompt_id: string;
+  status: 'pending' | 'running' | 'completed' | 'failed';
+  created_at: string;
+  completed_at: string | null;
+  metrics: {
+    overall_accuracy: number;
+    correct: number;
+    total: number;
+    category_stats: Record<string, { total: number; correct: number }>;
+  } | null;
+  confusion_matrix: Record<string, Record<string, number>> | null;
+  failed_cases: Array<{
+    test_id: number;
+    ticket: string;
+    expected: string;
+    predicted: string | null;
+  }> | null;
+}
 
-### 4. RUNS PAGE (`/runs`)
-
-**Header:**
-- Page title: "Run History"
-- [+ New Run] button
-
-**Filters Row:**
-- Dropdown: Filter by prompt
-- Dropdown: Filter by status (All, Completed, Running, Failed)
-
-**Runs Table:**
-| Column | Content |
-|--------|---------|
-| Run ID | #001, #002, etc. |
-| Prompt | v1, v2, v3 |
-| Accuracy | 93.4% |
-| Status | Badge (Done/Running/Failed) |
-| Date | Jan 16, 2024 10:30 |
-
-- Rows are clickable (navigate to run details)
-- Status badges: Done (green), Running (blue), Failed (red)
-
-**New Run Modal (triggered by [+ New Run]):**
-- Prompt selector dropdown
-- [Cancel] [Start] buttons
-
----
-
-### 5. RUN DETAILS (`/runs/[id]`)
-
-Full-page version of prompt card from dashboard:
-- All metrics displayed
-- Category breakdown chart
-- Full confusion matrix
-- Complete failed cases list
-- Back link to runs list
-
----
-
-### 6. TEST SET PAGE (`/test-set`)
-
-**Header:**
-- Page title: "Test Set"
-- Stats: "198 test cases | 11 categories"
-
-**Filters Row:**
-- Dropdown: Filter by category
-- Search box: Search ticket text
-
-**Test Cases Table:**
-| Column | Content |
-|--------|---------|
-| ID | 1, 2, 3... |
-| Ticket | "need assistance to notify..." |
-| Expected Category | ACCOUNT |
-
-- Paginated or virtual scroll for performance
-
-**Category Distribution Section:**
-- Small horizontal bar chart or chips showing count per category
-- Example: ACCOUNT (18) | CANCEL (18) | CONTACT (18) | ...
+// Metrics Summary
+interface MetricsSummary {
+  prompts: Record<string, {
+    id: string;
+    name: string;
+    latest_accuracy: number | null;
+    run_count: number;
+    best_accuracy: number | null;
+  }>;
+  best_prompt: string | null;
+  total_runs: number;
+  test_set_size: number;
+}
+```
 
 ---
 
-## Key UI Components
+## Implementation Steps
 
-### 1. Accuracy Badge
-Colored pill/badge based on value:
-- Green background: ≥90%
-- Yellow background: 70-89%
-- Red background: <70%
+### Phase 1: API Client ✅
+- [x] Create `src/app/lib/api.ts` with all API functions
+- [x] Add TypeScript interfaces for API responses
 
-### 2. Progress Bar
-- Horizontal bar
-- Fill width based on accuracy percentage
-- Color matches accuracy badge rules
+### Phase 2: Connect Pages
+- [ ] Dashboard.tsx - Use `getMetricsSummary()`, `getRuns()`
+- [ ] PromptsPage.tsx - Use `getPrompts()`
+- [ ] PromptEditor.tsx - Use `getPrompt()`, `createPrompt()`, `updatePrompt()`
+- [ ] RunsPage.tsx - Use `getRuns()`, `createRun()`
+- [ ] RunDetails.tsx - Use `getRun()`
+- [ ] TestSetPage.tsx - Use `getTestSet()`, `getTestCases()`
 
-### 3. Category Bar Chart
-- Horizontal bars, one per category
-- Sorted by accuracy (worst first) or alphabetically
-- Bar color based on accuracy threshold
-- Shows percentage + fraction (e.g., "94% (17/18)")
+### Phase 3: AI Suggestions
+- [ ] AISuggestionsModal.tsx - Use `getSuggestions()`
 
-### 4. Confusion Matrix
-- Grid layout
-- Rows = Actual categories
-- Columns = Predicted categories
-- Cell color intensity based on count
-- Diagonal = correct predictions (green tint)
-- Off-diagonal = errors (red tint intensity by count)
-
-### 5. Run Selector Dropdown
-- Options show: Date + Accuracy
-- Example: "Jan 16, 2024 (93.4%)"
-- Special option: "Averaged" for multi-run average
-
-### 6. Status Badge
-- Pill-shaped
-- "Completed" = green
-- "Running" = blue with spinner
-- "Failed" = red
-
-### 7. Failed Case Item
-- Compact row format
-- Shows: Test ID, Expected → Got
-- Example: "#42: Expected DELIVERY → Got SHIPPING"
-- Ticket text preview on hover or expandable
+### Phase 4: Polish
+- [ ] Loading states
+- [ ] Error handling
+- [ ] Run status polling (for in-progress runs)
 
 ---
 
-## Responsive Behavior
+## Running the Dashboard
 
-**Desktop (≥1024px):**
-- Multi-column layout
-- Prompt cards in 2-3 column grid
-- Full table views
+```bash
+cd dashboard
+pnpm install
+pnpm dev
+```
 
-**Tablet (768px - 1023px):**
-- 2-column grid for prompt cards
-- Condensed tables
+Runs on http://localhost:5173
 
-**Mobile (<768px):**
-- Single column, stacked cards
-- Collapsible sections
-- Horizontal scroll for tables
-
----
-
-## Sample Data for Design
-
-**Prompts:**
-- v1 "Baseline Prompt" - 93.4% accuracy, 2 runs
-- v2 "Simplified" - 77.8% accuracy, 1 run
-- v3 "Fixed" - 80.3% accuracy, 1 run
-
-**Categories (11):**
-ACCOUNT, CANCEL, CONTACT, DELIVERY, FEEDBACK, INVOICE, ORDER, PAYMENT, REFUND, SHIPPING, SUBSCRIPTION
-
-**Test Set:**
-- 198 total test cases
-- 18 per category (balanced)
-
-**Sample Failed Case:**
-- ID: 42
-- Ticket: "where is my package, it says shipped but not delivered"
-- Expected: DELIVERY
-- Predicted: SHIPPING
+**Backend must be running:** `uvicorn api.main:app --reload --port 8000`
 
 ---
 
 ## Current Status
-Ready for design in Figma
+Figma export complete. Ready to connect to backend API.
