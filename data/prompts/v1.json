@@ -1,0 +1,8 @@
+{
+  "id": "v1",
+  "name": "Baseline Prompt",
+  "template": "Classify this customer support ticket into ONE category.\n\nCategories:\n- ACCOUNT: account creation, deletion, editing, password recovery, registration issues, switching accounts\n- CANCEL: cancellation fees, checking cancellation policies\n- CONTACT: contacting support, requesting human agent\n- DELIVERY: delivery timeframes, delivery status, delivery options\n- FEEDBACK: complaints, reviews\n- INVOICE: checking invoices, requesting invoices\n- ORDER: order cancellation, changes, placement, tracking\n- PAYMENT: payment methods, payment issues\n- REFUND: refund policies, requesting refunds, tracking refunds\n- SHIPPING: shipping address changes, shipping options\n- SUBSCRIPTION: subscription management, newsletter subscription/unsubscription\n\nImportant: Focus on the PRIMARY intent of the ticket, not just keywords mentioned.\n\nTicket: {ticket}\n\nRespond with ONLY the category name in uppercase.\nCategory:",
+  "categories": ["ACCOUNT", "CANCEL", "CONTACT", "DELIVERY", "FEEDBACK", "INVOICE", "ORDER", "PAYMENT", "REFUND", "SHIPPING", "SUBSCRIPTION"],
+  "created_at": "2024-01-15T10:00:00Z",
+  "updated_at": "2024-01-15T10:00:00Z"
+}
