@@ -100,24 +100,24 @@ Maitai-interview/
 - [x] 7. Create `api/schemas.py` with Pydantic models
 - [x] 8. Update `requirements.txt`
 
-### Phase 3: Prompt Service & Endpoints
-- [ ] 9. Create `api/services/prompt_service.py`:
+### Phase 3: Prompt Service & Endpoints ✅
+- [x] 9. Create `api/services/prompt_service.py`:
     - `list_prompts()` - Read all JSON files from `data/prompts/`
     - `get_prompt(id)` - Read single prompt
     - `create_prompt(data)` - Write new JSON file
     - `update_prompt(id, data)` - Update existing JSON
     - `delete_prompt(id)` - Remove JSON file
-- [ ] 10. Create `api/routers/prompts.py` with CRUD endpoints
-- [ ] 11. Update `src/prompts.py` to load from JSON files
+- [x] 10. Create `api/routers/prompts.py` with CRUD endpoints
+- [x] 11. Update `src/prompts.py` to load from JSON files
 
-### Phase 4: Run Service & Endpoints
-- [ ] 12. Create `api/services/run_service.py`:
+### Phase 4: Run Service & Endpoints ✅
+- [x] 12. Create `api/services/run_service.py`:
     - `list_runs(prompt_id?)` - Read all runs, filter by prompt
     - `get_run(id)` - Read single run
     - `execute_run(prompt_id)` - Run tests (async/background)
     - `save_run(run_data)` - Write result JSON
-- [ ] 13. Create `api/routers/runs.py` with endpoints
-- [ ] 14. Integrate with existing `TicketRouter` class
+- [x] 13. Create `api/routers/runs.py` with endpoints
+- [x] 14. Integrate with existing `TicketRouter` class
 
 ### Phase 5: Metrics & Test Set Endpoints
 - [ ] 15. Create `api/services/metrics_service.py`:
@@ -314,4 +314,4 @@ Run failures are captured in the run file:
 ```
 
 ## Current
-Phase 1 & 2 complete. Ready for Phase 3 - Prompt Service & Endpoints
+Phase 1-4 complete. Ready for Phase 5 - Metrics & Test Set Endpoints

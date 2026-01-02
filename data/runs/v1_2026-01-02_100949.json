@@ -1,0 +1,12 @@
+{
+  "id": "v1_2026-01-02_100949",
+  "prompt_id": "v1",
+  "status": "running",
+  "created_at": "2026-01-02T10:09:49.577893+00:00",
+  "completed_at": null,
+  "metrics": null,
+  "confusion_matrix": null,
+  "results": null,
+  "failed_cases": null,
+  "error": null
+}

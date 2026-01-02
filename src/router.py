@@ -6,7 +6,7 @@ from typing import Optional
 import maitai
 
 from .config import MAITAI_API_KEY, ANTHROPIC_API_KEY, MODEL_NAME, APPLICATION_NAME, INTENT_NAME
-from .prompts import get_prompt, CATEGORIES, PromptVersion
+from .prompts import get_prompt, CATEGORIES
 
 # Workaround: Set placeholder to prevent Groq client init error
 os.environ["GROQ_API_KEY"] = "placeholder-not-used"
@@ -25,7 +25,7 @@ class TicketRouter:
     def route_ticket(
         self,
         ticket: str,
-        prompt_version: PromptVersion = "v1",
+        prompt_version: str = "v1",
         test_case_id: Optional[int] = None,
         expected_category: Optional[str] = None,
     ) -> str:
