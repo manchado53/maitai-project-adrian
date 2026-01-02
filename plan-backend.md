@@ -119,12 +119,12 @@ Maitai-interview/
 - [x] 13. Create `api/routers/runs.py` with endpoints
 - [x] 14. Integrate with existing `TicketRouter` class
 
-### Phase 5: Metrics & Test Set Endpoints
-- [ ] 15. Create `api/services/metrics_service.py`:
+### Phase 5: Metrics & Test Set Endpoints ✅
+- [x] 15. Create `api/services/metrics_service.py`:
     - `get_summary()` - Aggregate metrics across all runs per prompt
     - `get_test_set_info()` - Test set metadata
-- [ ] 16. Create `api/routers/metrics.py`
-- [ ] 17. Create `api/routers/test_sets.py`
+- [x] 16. Create `api/routers/metrics.py`
+- [x] 17. Create `api/routers/test_sets.py`
 
 ### Phase 6: LLM Suggestions Endpoint
 - [ ] 18. Create `api/routers/suggest.py`:
@@ -314,4 +314,4 @@ Run failures are captured in the run file:
 ```
 
 ## Current
-Phase 1-4 complete. Ready for Phase 5 - Metrics & Test Set Endpoints
+Phase 1-5 complete. Ready for Phase 6 - LLM Suggestions Endpoint

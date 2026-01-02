@@ -1,0 +1,1581 @@
+{
+  "id": "v1_2026-01-02_103813",
+  "prompt_id": "v1",
+  "status": "completed",
+  "created_at": "2026-01-02T10:38:13.028605+00:00",
+  "completed_at": "2026-01-02T10:41:19.124281+00:00",
+  "metrics": {
+    "overall_accuracy": 0.9242424242424242,
+    "correct": 183,
+    "total": 198,
+    "category_stats": {
+      "ACCOUNT": {
+        "total": 18,
+        "correct": 17
+      },
+      "CANCEL": {
+        "total": 18,
+        "correct": 13
+      },
+      "SUBSCRIPTION": {
+        "total": 18,
+        "correct": 18
+      },
+      "PAYMENT": {
+        "total": 18,
+        "correct": 18
+      },
+      "SHIPPING": {
+        "total": 18,
+        "correct": 18
+      },
+      "CONTACT": {
+        "total": 18,
+        "correct": 18
+      },
+      "FEEDBACK": {
+        "total": 18,
+        "correct": 18
+      },
+      "DELIVERY": {
+        "total": 18,
+        "correct": 11
+      },
+      "ORDER": {
+        "total": 18,
+        "correct": 17
+      },
+      "INVOICE": {
+        "total": 18,
+        "correct": 18
+      },
+      "REFUND": {
+        "total": 18,
+        "correct": 17
+      }
+    }
+  },
+  "confusion_matrix": {
+    "ACCOUNT": {
+      "ACCOUNT": 17,
+      "CANCEL": 1
+    },
+    "CANCEL": {
+      "CANCEL": 13,
+      "PAYMENT": 4,
+      "ACCOUNT": 1
+    },
+    "SUBSCRIPTION": {
+      "SUBSCRIPTION": 18
+    },
+    "PAYMENT": {
+      "PAYMENT": 18
+    },
+    "SHIPPING": {
+      "SHIPPING": 18
+    },
+    "CONTACT": {
+      "CONTACT": 18
+    },
+    "FEEDBACK": {
+      "FEEDBACK": 18
+    },
+    "DELIVERY": {
+      "SHIPPING": 4,
+      "DELIVERY": 11,
+      "ORDER": 3
+    },
+    "ORDER": {
+      "ORDER": 17,
+      "CANCEL": 1
+    },
+    "INVOICE": {
+      "INVOICE": 18
+    },
+    "REFUND": {
+      "REFUND": 17,
+      "ORDER": 1
+    }
+  },
+  "results": [
+    {
+      "test_id": 1,
+      "ticket": "need assistance to notify of an issue with sign-up",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 2,
+      "ticket": "where can I get information about the forgotten PIN code?",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 3,
+      "ticket": "I am trying to see the cancellation fee",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 4,
+      "ticket": "I can't unsubscribe from your company newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 5,
+      "ticket": "I don't know what I need to do to remove my standard account",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 6,
+      "ticket": "I want assistance to notify of troubles with payments",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 7,
+      "ticket": "I need to check the withdrawal penalties",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT",
+      "correct": false
+    },
+    {
+      "test_id": 8,
+      "ticket": "trouble entering my new shipping address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 9,
+      "ticket": "how can I see what hours I can reach customer service?",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 10,
+      "ticket": "help making a customer complaint against your business",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 11,
+      "ticket": "I need assistance subscribing to the corporate newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 12,
+      "ticket": "where to see what shipping methods you offer?",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING",
+      "correct": false
+    },
+    {
+      "test_id": 13,
+      "ticket": "can uhelp me see how soon can i expect the artikcle",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 14,
+      "ticket": "information about cancel the sbscription to the newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 15,
+      "ticket": "i try to check the cancellation fee",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 16,
+      "ticket": "I'd like to receive the company newsletter could ya help me",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 17,
+      "ticket": "I have got to edit my goddamn account, could you help me?",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 18,
+      "ticket": "how to check how soon can i expect the item",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 19,
+      "ticket": "want help to check the accepted payment options",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 20,
+      "ticket": "want help lodging a customer claim against your organization",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 21,
+      "ticket": "I don't know what I need to do to edit my shipping address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 22,
+      "ticket": "is it possible to report troubles with payments?",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 23,
+      "ticket": "I chose a wrong address by mistake, I want to modify it",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 24,
+      "ticket": "where can I cancel order {{Order Number}}?",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 25,
+      "ticket": "I need to check how long it takes for the delivery to arrive",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 26,
+      "ticket": "I want help to see what payment options you accept",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 27,
+      "ticket": "help me seeing what hours i can reachb customer service",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 28,
+      "ticket": "do you have a free number to call cjstomer service?",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 29,
+      "ticket": "what is the early termination fee?",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 30,
+      "ticket": "want help seeing thecancellation fees",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 31,
+      "ticket": "how to seethe bill from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 32,
+      "ticket": "help talking to somebody",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 33,
+      "ticket": "where can I get information about an address change?",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 34,
+      "ticket": "how to obtain a rebate of money",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 35,
+      "ticket": "i do not know what to do to receive the corporate newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 36,
+      "ticket": "can ushow me the withdrawal penalties",
+      "expected": "CANCEL",
+      "predicted": "ACCOUNT",
+      "correct": false
+    },
+    {
+      "test_id": 37,
+      "ticket": "I need assistance to enter the new shipping address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 38,
+      "ticket": "can i check the withdrawal penalty",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT",
+      "correct": false
+    },
+    {
+      "test_id": 39,
+      "ticket": "want help to see what hours I can call customer assistance",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 40,
+      "ticket": "I have got to see how long the delivery takes, I need help",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 41,
+      "ticket": "i have to check the early exit fee will uhelp me",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 42,
+      "ticket": "i do not know what to do to download the invoice #85632",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 43,
+      "ticket": "I want to send some feedback for a product",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 44,
+      "ticket": "I do not know how to notify of a problem with payment",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 45,
+      "ticket": "help me lodge a consumer claim against ur company",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 46,
+      "ticket": "is it possible to subscribe to your newsletter?",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 47,
+      "ticket": "help em checking the withdrawal fees",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT",
+      "correct": false
+    },
+    {
+      "test_id": 48,
+      "ticket": "I am calling to see what delivery options you offer",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 49,
+      "ticket": "help me to unsubscribe to your company newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 50,
+      "ticket": "troubles entering a secondary delivery address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 51,
+      "ticket": "can ya help me subscribing to ur company newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 52,
+      "ticket": "is it possible toorder from {{Delivery City}}",
+      "expected": "DELIVERY",
+      "predicted": "ORDER",
+      "correct": false
+    },
+    {
+      "test_id": 53,
+      "ticket": "make complaint against your organization",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 54,
+      "ticket": "I expect a compensation of {{Refund Amount}} dollars, was it processed",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 55,
+      "ticket": "want help to check whenmy package is gonna arrive",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 56,
+      "ticket": "i have to see in what cases acn i request my money back",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 57,
+      "ticket": "I don't knwo how to make an order",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 58,
+      "ticket": "order {{Order Number}} status",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 59,
+      "ticket": "how do I sere the payment modalities?",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 60,
+      "ticket": "there is an error setting a secondary delivery address up",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 61,
+      "ticket": "show your money back guarantee",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 62,
+      "ticket": "i dont know what i need to do to send some feedback",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 63,
+      "ticket": "I need assitance getting the invoice #00108",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 64,
+      "ticket": "I want assistance to receive your company newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 65,
+      "ticket": "show me in what casescan i request my money back",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 66,
+      "ticket": "can uhelp me modifying the details included on my profile",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 67,
+      "ticket": "I would like to submit my feedback about a product, help me",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 68,
+      "ticket": "checking ETA of order {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 69,
+      "ticket": "I want assistance to talk with an agent",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 70,
+      "ticket": "i expect a compensqtion of {{Refund Amount}} dollars",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 71,
+      "ticket": "i need assistance to solve na issue with payment",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 72,
+      "ticket": "assistance to locate hte bill from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 73,
+      "ticket": "I am trying to see what hours I can contact customet service",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 74,
+      "ticket": "can you help me see what shipment methods you offer?",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING",
+      "correct": false
+    },
+    {
+      "test_id": 75,
+      "ticket": "i cannot see if there is anything new on my refund",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 76,
+      "ticket": "i need help to see what hours customer support azvailable is",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 77,
+      "ticket": "I do not know how to send my goddamn feedback for a product",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 78,
+      "ticket": "I cannotsubmit my shipping address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 79,
+      "ticket": "i dont know what to do to get a reimbursement",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 80,
+      "ticket": "assistance opening user account",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 81,
+      "ticket": "I do not know how to retrieve my user account pwd",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 82,
+      "ticket": "help me see my bill from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 83,
+      "ticket": "i do not know how to receive a compensatin",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 84,
+      "ticket": "help seeing under which circumstances can I request a refund",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 85,
+      "ticket": "I need information about the cancellation of my {{Account Type}} account",
+      "expected": "ACCOUNT",
+      "predicted": "CANCEL",
+      "correct": false
+    },
+    {
+      "test_id": 86,
+      "ticket": "I don't know what I need to do to acquire something",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 87,
+      "ticket": "I want to see the cancellation penalty",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 88,
+      "ticket": "I do not know how to cancel my premium account",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 89,
+      "ticket": "help with cancelling order {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 90,
+      "ticket": "I need help to receive restitutions of money",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 91,
+      "ticket": "I have to check when will my package arrive, I need help",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 92,
+      "ticket": "help me checking the allowed payment options",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 93,
+      "ticket": "help me calling customer service",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 94,
+      "ticket": "I want help to cancel purchase {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 95,
+      "ticket": "where to request reimbursements",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 96,
+      "ticket": "wanna download invoice #37777 could ya help me",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 97,
+      "ticket": "i cant check my restitution current status",
+      "expected": "REFUND",
+      "predicted": "ORDER",
+      "correct": false
+    },
+    {
+      "test_id": 98,
+      "ticket": "restore the password of my user",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 99,
+      "ticket": "I have got to receive the corporate newsletter, I need help",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 100,
+      "ticket": "I do not know what to od to download my bill #37777",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 101,
+      "ticket": "want assistance to inform of a payment problem",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 102,
+      "ticket": "I do not know how I could speak with an agent",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 103,
+      "ticket": "I can't check the status of purchase {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 104,
+      "ticket": "i cant edit my shippin address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 105,
+      "ticket": "I want assistance checking the early termination fee",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 106,
+      "ticket": "check my refund status",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 107,
+      "ticket": "is it possible to write a comment about your company?",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 108,
+      "ticket": "how can I check if there are any updates on the restitution?",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 109,
+      "ticket": "what do I have to do to change my delivery address?",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 110,
+      "ticket": "see my blls from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 111,
+      "ticket": "assistance to cancel the subscription to your newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 112,
+      "ticket": "how can i inform of a payment problem",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 113,
+      "ticket": "I have to check the options for shipping, how could I do it?",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING",
+      "correct": false
+    },
+    {
+      "test_id": 114,
+      "ticket": "modifying freemium account",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 115,
+      "ticket": "i want help downloading my invoice from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 116,
+      "ticket": "I want to unsubscribe from thd company newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 117,
+      "ticket": "I have to see bill #85632, I need help",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 118,
+      "ticket": "is it possible to check hwat payment methods ya accept",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 119,
+      "ticket": "how do I update my delivery address?",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 120,
+      "ticket": "I have got to use the pro profile, how can I do it?",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 121,
+      "ticket": "send me invoice #00108",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 122,
+      "ticket": "i need help canceling order {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 123,
+      "ticket": "update data on {{Account Type}} account",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 124,
+      "ticket": "leave review for your services",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 125,
+      "ticket": "can i order from {{Delivery City}}",
+      "expected": "DELIVERY",
+      "predicted": "ORDER",
+      "correct": false
+    },
+    {
+      "test_id": 126,
+      "ticket": "I cannot understand you, I want to speak with a human agent",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 127,
+      "ticket": "where do I check the current status of order {{Order Number}}?",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 128,
+      "ticket": "reporting issues with registration",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 129,
+      "ticket": "I need assistance to purchase some articles",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 130,
+      "ticket": "wanna know more about modifying my delivery address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 131,
+      "ticket": "question about cancelling purchase {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "CANCEL",
+      "correct": false
+    },
+    {
+      "test_id": 132,
+      "ticket": "how do I look for bill #12588?",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 133,
+      "ticket": "I have lost bill #00108, can you show it to me?",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 134,
+      "ticket": "remove item from order {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 135,
+      "ticket": "i have to list the available  payment options",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 136,
+      "ticket": "i need help with switching an article of order {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 137,
+      "ticket": "help geting my bills from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 138,
+      "ticket": "I want help downloading the bill #85632",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 139,
+      "ticket": "I want help to enter a damn secondary delivery address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 140,
+      "ticket": "how do i make a consumer reclamation against ur business",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 141,
+      "ticket": "I have to check what hours I can reach customer support",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 142,
+      "ticket": "what do I need to do to lodge a customer complaint?",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 143,
+      "ticket": "I have to check the shipment options, help me",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING",
+      "correct": false
+    },
+    {
+      "test_id": 144,
+      "ticket": "check my reimbursement status",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 145,
+      "ticket": "how to notify of problems with payment?",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 146,
+      "ticket": "I'm trying to see the early exit fees",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 147,
+      "ticket": "can I order from {{Delivery City}}?",
+      "expected": "DELIVERY",
+      "predicted": "ORDER",
+      "correct": false
+    },
+    {
+      "test_id": 148,
+      "ticket": "I am trying to find my invoices from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 149,
+      "ticket": "I want to make a customer complaint",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 150,
+      "ticket": "assistance checking when my purchase is going to arrive",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 151,
+      "ticket": "how to sign up to your newsletter?",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 152,
+      "ticket": "I nede to see the early exit fees, how can I do it?",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 153,
+      "ticket": "I have to talk to an assistant, help me",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 154,
+      "ticket": "need help to leave feedback for ur products",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 155,
+      "ticket": "can you help me checking when will my parcel arrive?",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 156,
+      "ticket": "my shipping address changed, can you update it?",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 157,
+      "ticket": "can ya help me talk with a human agent",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 158,
+      "ticket": "have a question about cancelling order {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 159,
+      "ticket": "is there a way to submit a comment for your services?",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 160,
+      "ticket": "I submitted a wrong delivery address, can I modify it?",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 161,
+      "ticket": "what do i have to do to update my deliverey address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 162,
+      "ticket": "i have problems with the pin reset",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 163,
+      "ticket": "delieries to {{Delivery City}}",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 164,
+      "ticket": "I want assistance canceling purchase {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 165,
+      "ticket": "i have to get my nivoice #85632 could ya help me",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 166,
+      "ticket": "how could I see your bloody accepted payment modalities?",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 167,
+      "ticket": "I have got to request my damn money back",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 168,
+      "ticket": "where to sign up to your newsletter?",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 169,
+      "ticket": "help me to delete some products from purchase {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 170,
+      "ticket": "can you help me writing a review for your company?",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 171,
+      "ticket": "want assistance to solve a payment problem",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 172,
+      "ticket": "I have to notify of issues with a signup",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 173,
+      "ticket": "cancel my corporate newsletter subscription",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 174,
+      "ticket": "where do I see what hours I can reach customer support?",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 175,
+      "ticket": "i do not know what i have to do to speak with a live agent",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 176,
+      "ticket": "I need to see the termination penalty, how can I do it?",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 177,
+      "ticket": "I paid {{Currency Symbol}}{{Refund Amount}} for this purchase, I have to get a damn refund",
+      "expected": "REFUND",
+      "predicted": "REFUND",
+      "correct": true
+    },
+    {
+      "test_id": 178,
+      "ticket": "can you help me see the withdrawal fees?",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT",
+      "correct": false
+    },
+    {
+      "test_id": 179,
+      "ticket": "assistance seeing the cancellation charge",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 180,
+      "ticket": "need assistance to report a problem with signup",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 181,
+      "ticket": "can ya help mereceive ur company newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 182,
+      "ticket": "I have got to check when will my parcel arrive, I need help",
+      "expected": "DELIVERY",
+      "predicted": "DELIVERY",
+      "correct": true
+    },
+    {
+      "test_id": 183,
+      "ticket": "can you tell me your damn payment methods?",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 184,
+      "ticket": "want help closing the  standard account",
+      "expected": "ACCOUNT",
+      "predicted": "ACCOUNT",
+      "correct": true
+    },
+    {
+      "test_id": 185,
+      "ticket": "I want assistance to enter a damn different delivery address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 186,
+      "ticket": "I want to talk with customer support",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 187,
+      "ticket": "i  dont know how to check the early exit penalty",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 188,
+      "ticket": "I want help speaking with a human agent",
+      "expected": "CONTACT",
+      "predicted": "CONTACT",
+      "correct": true
+    },
+    {
+      "test_id": 189,
+      "ticket": "need to give a quick look at the invoice from {{Person Name}}",
+      "expected": "INVOICE",
+      "predicted": "INVOICE",
+      "correct": true
+    },
+    {
+      "test_id": 190,
+      "ticket": "I have to unsubscribe from your newsletter",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 191,
+      "ticket": "tell me about cancel my company newsletter subscription",
+      "expected": "SUBSCRIPTION",
+      "predicted": "SUBSCRIPTION",
+      "correct": true
+    },
+    {
+      "test_id": 192,
+      "ticket": "I would like to shop some of your product, how to do it?",
+      "expected": "ORDER",
+      "predicted": "ORDER",
+      "correct": true
+    },
+    {
+      "test_id": 193,
+      "ticket": "I do not know how I can leave a comment about your products",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 194,
+      "ticket": "where to see the early termination charges?",
+      "expected": "CANCEL",
+      "predicted": "CANCEL",
+      "correct": true
+    },
+    {
+      "test_id": 195,
+      "ticket": "I'm calling to lodge a reclamation against ur business",
+      "expected": "FEEDBACK",
+      "predicted": "FEEDBACK",
+      "correct": true
+    },
+    {
+      "test_id": 196,
+      "ticket": "I don't know how I can report an error with online payment",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    },
+    {
+      "test_id": 197,
+      "ticket": "i cannot set up my shipping address",
+      "expected": "SHIPPING",
+      "predicted": "SHIPPING",
+      "correct": true
+    },
+    {
+      "test_id": 198,
+      "ticket": "assistance to solve issues with online payment",
+      "expected": "PAYMENT",
+      "predicted": "PAYMENT",
+      "correct": true
+    }
+  ],
+  "failed_cases": [
+    {
+      "test_id": 7,
+      "ticket": "I need to check the withdrawal penalties",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT"
+    },
+    {
+      "test_id": 12,
+      "ticket": "where to see what shipping methods you offer?",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING"
+    },
+    {
+      "test_id": 36,
+      "ticket": "can ushow me the withdrawal penalties",
+      "expected": "CANCEL",
+      "predicted": "ACCOUNT"
+    },
+    {
+      "test_id": 38,
+      "ticket": "can i check the withdrawal penalty",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT"
+    },
+    {
+      "test_id": 47,
+      "ticket": "help em checking the withdrawal fees",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT"
+    },
+    {
+      "test_id": 52,
+      "ticket": "is it possible toorder from {{Delivery City}}",
+      "expected": "DELIVERY",
+      "predicted": "ORDER"
+    },
+    {
+      "test_id": 74,
+      "ticket": "can you help me see what shipment methods you offer?",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING"
+    },
+    {
+      "test_id": 85,
+      "ticket": "I need information about the cancellation of my {{Account Type}} account",
+      "expected": "ACCOUNT",
+      "predicted": "CANCEL"
+    },
+    {
+      "test_id": 97,
+      "ticket": "i cant check my restitution current status",
+      "expected": "REFUND",
+      "predicted": "ORDER"
+    },
+    {
+      "test_id": 113,
+      "ticket": "I have to check the options for shipping, how could I do it?",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING"
+    },
+    {
+      "test_id": 125,
+      "ticket": "can i order from {{Delivery City}}",
+      "expected": "DELIVERY",
+      "predicted": "ORDER"
+    },
+    {
+      "test_id": 131,
+      "ticket": "question about cancelling purchase {{Order Number}}",
+      "expected": "ORDER",
+      "predicted": "CANCEL"
+    },
+    {
+      "test_id": 143,
+      "ticket": "I have to check the shipment options, help me",
+      "expected": "DELIVERY",
+      "predicted": "SHIPPING"
+    },
+    {
+      "test_id": 147,
+      "ticket": "can I order from {{Delivery City}}?",
+      "expected": "DELIVERY",
+      "predicted": "ORDER"
+    },
+    {
+      "test_id": 178,
+      "ticket": "can you help me see the withdrawal fees?",
+      "expected": "CANCEL",
+      "predicted": "PAYMENT"
+    }
+  ],
+  "error": null
+}

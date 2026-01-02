@@ -40,13 +40,13 @@ async def health() -> dict:
 
 
 # Import and include routers
-from api.routers import prompts, runs
+from api.routers import prompts, runs, metrics, test_sets
 
 app.include_router(prompts.router, prefix="/prompts", tags=["prompts"])
 app.include_router(runs.router, prefix="/runs", tags=["runs"])
+app.include_router(metrics.router, prefix="/metrics", tags=["metrics"])
+app.include_router(test_sets.router, prefix="/test-set", tags=["test-set"])
 
-# TODO: Add in later phases
-# from api.routers import metrics, test_sets, suggest
-# app.include_router(metrics.router, prefix="/metrics", tags=["metrics"])
-# app.include_router(test_sets.router, prefix="/test-set", tags=["test-set"])
+# TODO: Add in Phase 6
+# from api.routers import suggest
 # app.include_router(suggest.router, prefix="/suggest", tags=["suggest"])

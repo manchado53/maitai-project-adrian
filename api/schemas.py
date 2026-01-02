@@ -62,7 +62,7 @@ class FailedCase(BaseModel):
     test_id: int
     ticket: str
     expected: str
-    predicted: str
+    predicted: str | None
 
 
 class RunResponse(BaseModel):
